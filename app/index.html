@@ -38,14 +38,18 @@
     </div>
 
     <script type="text/x-handlebars-template" id="whiskey_items">
-      {{#each drinks}}
-        {{#if tried}}
-        <li class="tried">
-        {{else}}
-        <li>
-        {{/if}}
-          <a id="{{ _id }}" href="">{{ name }}</a> <span>X</span></li>
-      {{/each}}
+
+      <div class="cards">
+        {{#each drinks}}
+          <div class="card" id="{{ _id }}">
+            {{#if tried}}
+              <div class="ribbon-wrapper"><div class="ribbon">Tasted</div></div>
+            {{/if}}
+            <div class="card-header">{{ name }}</div>
+            <div class="card-copy"><p>{{ description }}</p></div>
+          </div>
+        {{/each}}
+      </div>
     </script>
 
     <!-- build:js scripts/vendor.js -->

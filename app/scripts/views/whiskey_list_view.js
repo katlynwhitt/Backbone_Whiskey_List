@@ -3,7 +3,7 @@ var WhiskeyListView = Backbone.View.extend ({
   el: '.whiskey_list',
 
   events: {
-    'click li a' : 'toggleDrank',
+    'click .card' : 'toggleDrank',
     'click li span' : 'removeWhiskey'
   },
 
@@ -21,11 +21,12 @@ var WhiskeyListView = Backbone.View.extend ({
   toggleDrank: function (event) {
     event.preventDefault();
 
-    var item_clicked = $(event.target);
+    var item_clicked = $(event.currentTarget);
     var drink_id = item_clicked.attr('id');
     var drink = this.collection.get(drink_id);
+    var tried = drink.get('tried');
 
-    if (item_clicked.parent().hasClass('tried')) {
+    if (tried) {
       drink.set({ tried: false }).save();
     } else {
       drink.set({ tried: true }).save();
@@ -36,3 +37,4 @@ var WhiskeyListView = Backbone.View.extend ({
 
 
 });
+
