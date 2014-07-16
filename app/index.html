@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Whiskey_App</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="leftCol">
+        <form action="" id="newWhiskey">
+          <input type="text" name="whiskey_title" class="whiskey_title" placeholder="Whiskey Title"/>
+          <textarea name="whiskey_desc" class="whiskey_desc" cols="30" rows="10" placeholder="Whiskey Description"></textarea>
+          <br />
+          <input type="submit" value="Add Whiskey"/>
+        </form>
+      </div>
+      <div class="rightCol">
+        <ul class="whiskey_list"></ul>
+      </div>
+    </div>
+
+    <script type="text/x-handlebars-template" id="whiskey_items">
+      {{#each drinks}}
+        {{#if tried}}
+        <li class="tried">
+        {{else}}
+        <li>
+        {{/if}}
+          <a id="{{ _id }}" href="">{{ name }}</a> <span>X</span></li>
+      {{/each}}
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/backbone/backbone.js"></script>
+    <script src="../bower_components/handlebars/handlebars.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/models/whiskey_model.js"></script>
+    <script src="scripts/views/whiskey_list_view.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
