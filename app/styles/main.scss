@@ -112,6 +112,12 @@ ul.whiskey_list li {
      }
    }
 
+   .actions {
+     float: right;
+     margin-top: -46px;
+     margin-right: 5px;
+   }
+
    &:active {
      background-color: $card-background;
 

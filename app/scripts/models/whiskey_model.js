@@ -12,5 +12,6 @@ var Whiskey = Backbone.Model.extend({
 
 var WhiskeyCollection = Backbone.Collection.extend ({
   model: Whiskey,
-  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/whiskeyapp'
+  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/whiskeyapp',
+  comparator: 'tried'
 });

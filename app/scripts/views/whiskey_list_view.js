@@ -3,16 +3,17 @@ var WhiskeyListView = Backbone.View.extend ({
   el: '.whiskey_list',
 
   events: {
-    'click .card' : 'toggleDrank',
-    'click li span' : 'removeWhiskey'
+    'click .card' : 'toggleDrank'
   },
 
   initialize: function () {
     this.render();
     this.collection.on('change', this.render, this);
+//    this.collection.on('sort', this.render, this);
   },
 
   render: function () {
+    this.collection.sort();
     var template = Handlebars.compile($('#whiskey_items').html());
     var rendered = template({ drinks: this.collection.toJSON() });
     this.$el.html(rendered);
@@ -31,10 +32,7 @@ var WhiskeyListView = Backbone.View.extend ({
     } else {
       drink.set({ tried: true }).save();
     }
-  },
-
-  removeWhiskey: function () {}
-
+  }
 
 });
 
